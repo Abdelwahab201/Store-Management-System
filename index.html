@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Abdelwahab Abdelsalam" />
+    <title>Store Managment System</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <section class="product-form py-5 w-75 mx-auto">
+      <div class="title text-center shadow border rounded mb-4 mx-auto p-2">
+        <h2 class="text-uppercase">
+          <span class="text-info">e</span>lonsol
+          <span class="text-info">s</span>tore
+        </h2>
+      </div>
+
+      <div class="product-inputs">
+        <div class="form-floating mb-3">
+          <input
+            oninput="isProductInputsValid( productRegex.productNameRegex   , this)"
+            type="text"
+            class="form-control border-0 border-bottom rounded-0"
+            id="productName"
+            placeholder="Enter Your Product Name..."
+          />
+          <p class="text-danger mt-2 fw-semibold d-none">
+            Product Name must start with capital letter followed by at least two
+            character.
+          </p>
+          <label for="productName">Product Name</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input
+            oninput="isProductInputsValid( productRegex.productPriceRegex   , this)"
+            type="number"
+            class="form-control border-0 border-bottom rounded-0"
+            id="productPrice"
+            placeholder="Enter Your Product Price..."
+          />
+
+          <p class="text-danger mt-2 fw-semibold d-none">
+            Product price must be greater than zero.
+          </p>
+
+          <label for="productPrice">Product Price</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select
+            oninput="isProductInputsValid( productRegex.productCategoryRegex   , this)"
+            class="form-select border-0 border-bottom rounded-0"
+            id="productCategory"
+            aria-label="Floating label select example"
+          >
+            <option disabled hidden selected>Choose Product Category</option>
+            <option value="Mobile">Mobile</option>
+            <option value="Headphones">Headphones</option>
+            <option value="Laptop">Laptop</option>
+            <option value="Camera">Camera</option>
+            <option value="Printer">Printer</option>
+            <option value="TV">TV</option>
+          </select>
+
+          <p class="text-danger mt-2 fw-semibold d-none">
+            Please choose one of these categories (Mobile, Headphones, TV,
+            Printer, Laptop, Camera)
+          </p>
+
+          <label for="productCategory">Product Category</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <textarea
+            oninput="isProductInputsValid( productRegex.productDescriptionRegex   , this)"
+            class="form-control border-0 border-bottom rounded-0"
+            placeholder="Leave a comment here"
+            id="productDescription"
+          ></textarea>
+
+          <p class="text-danger mt-2 fw-semibold d-none">
+            Product description must be at least 4 characters.
+          </p>
+
+          <label for="productDescription">Product Description</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input
+            onchange="isProductImageInputValid()"
+            type="file"
+            class="form-control border-0 border-bottom rounded-0"
+            id="productImage"
+            placeholder="Enter Your Product Image..."
+          />
+          <p class="text-danger mt-2 fw-semibold d-none">
+            Please choose image for your product.
+          </p>
+
+          <label for="productImage">Product Image</label>
+        </div>
+
+        <button
+          id="addBtn"
+          onclick="addProduct()"
+          class="btn btn-info text-light"
+        >
+          Add Product
+        </button>
+        <button
+          onclick="updateProduct()"
+          id="updateBtn"
+          class="btn btn-warning text-light d-none"
+        >
+          Update Product
+        </button>
+      </div>
+    </section>
+
+    <div class="search-input">
+      <input
+        oninput="searchProduct(this)"
+        type="search"
+        class="form-control w-50 mx-auto"
+        id="searchInput"
+        placeholder="Search By Product Name..."
+      />
+    </div>
+
+    <section class="products py-5">
+      <div class="container">
+        <div class="row g-4" id="rowData"></div>
+      </div>
+    </section>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

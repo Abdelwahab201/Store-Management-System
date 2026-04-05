@@ -1,0 +1,48 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Arimo", sans-serif;
+}
+.product-form .title {
+  width: fit-content;
+}
+
+.product-form .product-inputs .form-control,
+.product-form .product-inputs .form-select {
+  border-width: 2px !important;
+}
+
+.product-form .product-inputs .form-control:focus,
+.product-form .product-inputs .form-select:focus {
+  box-shadow: none;
+  border-color: darkcyan !important;
+}
+
+.search-input input {
+  border-width: 2px;
+}
+.search-input input:focus {
+  box-shadow: none;
+  border-color: darkcyan;
+}
+
+.product-form .form-control.is-valid,
+.product-form .form-control.is-valid:focus,
+.product-form .form-select.is-valid,
+.product-form .form-select.is-valid:focus {
+  border-color: #198754 !important;
+}
+
+.product-form .form-control.is-invalid,
+.product-form .form-control.is-invalid:focus,
+.product-form .form-select.is-invalid,
+.product-form .form-select.is-invalid:focus {
+  border-color: #dc3545 !important;
+}
